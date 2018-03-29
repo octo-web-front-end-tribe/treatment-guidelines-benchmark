@@ -1,20 +1,13 @@
 export default theme => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
   formControl: {
     margin: theme.spacing.unit,
     minWidth: 120,
     maxWidth: 300,
 		width: '100%',
   },
-  chips: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
-  chip: {
-    margin: theme.spacing.unit / 4
+  resultControl: {
+    margin: theme.spacing.unit,
+		width: '100%',
   },
   appBar: {
     color: "grey",
@@ -42,4 +35,13 @@ export default theme => ({
 		alignItems: "flex-end",
 		padding: 8,
 	},
+	switchField: {
+		paddingLeft: 15,
+	},
+	button: {
+  	textAlign: "right",
+	},
+	button2: {
+  	color: "white",
+	}
 });

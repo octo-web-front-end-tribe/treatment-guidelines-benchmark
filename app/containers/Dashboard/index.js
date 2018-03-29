@@ -38,7 +38,7 @@ function Dashboard({ classes }) {
 		<Grid container className={ classes.root }>
 			{ IconList.map(({ Icon, text, linkTo }) => (
 				<NavLink to={ linkTo } className={ classes.link } key={Icon}>
-					<Grid item>
+					<Grid item className={classes.grid}>
 						<Paper className={ classes.iconPaper } elevation={ 4 }>
 							<img src={Icon} className={ classes.icon }/>
 						</Paper>

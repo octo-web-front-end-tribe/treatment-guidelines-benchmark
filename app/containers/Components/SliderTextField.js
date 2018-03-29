@@ -8,7 +8,7 @@ const SliderWithTooltip = createSliderWithTooltip(Slider);
 
 export default ({name, value, label, classes, onChange, onValueChange, min = 0, max, step}) => (
   <div className={classes.sliderTextField }>
-    <Grid item lg={6} direction="column">
+    <Grid item lg={6} xl={6} md={12} sm={12} xs={12} direction="row">
       <TextField
         className={classes.formControl}
         id={name}
@@ -17,7 +17,7 @@ export default ({name, value, label, classes, onChange, onValueChange, min = 0, 
         onChange={onChange}
       />
     </Grid>
-    <Grid item lg={6}>
+    <Grid item lg={6} xl={6} md={12} sm={12} xs={12}>
       <div className={classes.slider}>
         <SliderWithTooltip
           onChange={onValueChange}

@@ -6,15 +6,23 @@ export default theme => ({
 		width: "100%",
 		height: "100%",
 	},
+	grid: {
+		'&:hover': {
+			opacity: 0.5,
+		},
+	},
 	icon: {
 		width: "100%",
-		height: "100%"
+		height: "100%",
 	},
 	iconPaper: theme.mixins.gutters({
 		width: 200,
 		height: 200,
 		padding: "25%",
-		textAlign: "center"
+		textAlign: "center",
+		'&:hover': {
+			backgroundColor: "lightGrey"
+		},
 	}),
 	textPaper: theme.mixins.gutters({
 		marginTop: 1,
