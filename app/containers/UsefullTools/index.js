@@ -1,34 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
-import TextField from "material-ui/TextField";
 import AppBar from "material-ui/AppBar";
 import Grid from "material-ui/Grid";
 import Tabs, { Tab } from "material-ui/Tabs";
-import Slider, { createSliderWithTooltip } from "rc-slider";
 
 import SelectControl from "../Components/SelectControl";
 import SliderTextField from "../Components/SliderTextField";
+import SwitchField from "../Components/SwitchField";
 import styles from "./styles";
 
 const SEXES = ["Female", "Male"];
-const SliderWithTooltip = createSliderWithTooltip(Slider);
 
 class MultipleSelect extends React.Component {
   state = {
     sex: [],
     age: "",
     race: 1,
-		totalCholesterol: "",
-		ldlCholesterol: "",
+    totalCholesterol: "",
+    ldlCholesterol: "",
+		hdlCholesterol: "",
+    treatmentWithStatin: false,
+    systolicBloodPressure: "",
+    treatmentForHypertension: false,
+		historyOfDiabetes: false,
   };
 
   handleChange = fieldName => event => {
     this.setState({ [fieldName]: event.target.value });
   };
 
-	handleValueChange = fieldName => value => {
-		this.setState({ [fieldName]: value });
+  handleValueChange = fieldName => value => {
+    this.setState({ [fieldName]: value });
   };
 
   handleBarChange = fieldName => (event, value) => {
@@ -51,17 +54,17 @@ class MultipleSelect extends React.Component {
             />
           </Grid>
           <Grid container alignItems="flex-end" lg={12}>
-						<SliderTextField
-							name={"age"}
-							value={this.state.age}
-							label={"Age"}
-							classes={classes}
-							onChange={this.handleChange("age")}
-							onValueChange={this.handleValueChange("age")}
-							min={0}
-							max={120}
-							step={1}
-						/>
+            <SliderTextField
+              name={"age"}
+              value={this.state.age}
+              label={"Age"}
+              classes={classes}
+              onChange={this.handleChange("age")}
+              onValueChange={this.handleValueChange("age")}
+              min={0}
+              max={120}
+              step={1}
+            />
           </Grid>
           <Grid item lg={12}>
             <AppBar
@@ -84,32 +87,106 @@ class MultipleSelect extends React.Component {
               </Tabs>
             </AppBar>
           </Grid>
-					<Grid container alignItems="flex-end" lg={12}>
-						<SliderTextField
-							name={"totalCholesterol"}
-							value={this.state.totalCholesterol}
-							label={"Total cholesterol (g/l)"}
-							classes={classes}
-							onChange={this.handleChange("totalCholesterol")}
-							onValueChange={this.handleValueChange("totalCholesterol")}
-							min={0}
-							max={2}
-							step={0.01}
-						/>
-					</Grid>
-					<Grid container alignItems="flex-end" lg={12}>
-						<SliderTextField
-							name={"ldlCholesterol"}
-							value={this.state.ldlCholesterol}
-							label={"LDL cholesterol (g/l)"}
-							classes={classes}
-							onChange={this.handleChange("ldlCholesterol")}
-							onValueChange={this.handleValueChange("ldlCholesterol")}
-							min={0}
-							max={2}
-							step={0.01}
-						/>
-					</Grid>
+          <Grid container alignItems="flex-end" lg={12}>
+            <SliderTextField
+              name={"totalCholesterol"}
+              value={this.state.totalCholesterol}
+              label={"Total cholesterol (g/l)"}
+              classes={classes}
+              onChange={this.handleChange("totalCholesterol")}
+              onValueChange={this.handleValueChange("totalCholesterol")}
+              min={0}
+              max={2}
+              step={0.01}
+            />
+          </Grid>
+          <Grid container alignItems="flex-end" lg={12}>
+            <SliderTextField
+              name={"ldlCholesterol"}
+              value={this.state.ldlCholesterol}
+              label={"LDL cholesterol (g/l)"}
+              classes={classes}
+              onChange={this.handleChange("ldlCholesterol")}
+              onValueChange={this.handleValueChange("ldlCholesterol")}
+              min={0}
+              max={2}
+              step={0.01}
+            />
+          </Grid>
+          <Grid container alignItems="flex-end" lg={12}>
+            <SliderTextField
+              name={"hdlCholesterol"}
+              value={this.state.hdlCholesterol}
+              label={"HDL cholesterol (g/l)"}
+              classes={classes}
+              onChange={this.handleChange("hdlCholesterol")}
+              onValueChange={this.handleValueChange("hdlCholesterol")}
+              min={0}
+              max={2}
+              step={0.01}
+            />
+          </Grid>
+          <Grid container alignItems="flex-end" lg={12}>
+            <SwitchField
+              checked={this.state.treatmentWithStatin}
+              onChange={this.handleBarChange("treatmentWithStatin")}
+              name={"treatmentWithStatin"}
+              label={"Treatment with STATIN"}
+            />
+          </Grid>
+          <Grid container alignItems="flex-end" lg={12}>
+            <SliderTextField
+              name={"systolicBloodPressure"}
+              value={this.state.systolicBloodPressure}
+              label={"Systolic blood pressure (mmHg)"}
+              classes={classes}
+              onChange={this.handleChange("systolicBloodPressure")}
+              onValueChange={this.handleValueChange("systolicBloodPressure")}
+              min={0}
+              max={200}
+              step={1}
+            />
+          </Grid>
+          <Grid container alignItems="flex-end" lg={12}>
+            <SwitchField
+              checked={this.state.treatmentForHypertension}
+              onChange={this.handleBarChange("treatmentForHypertension")}
+              name={"treatmentForHypertension"}
+              label={"Treatment for hypertension"}
+            />
+          </Grid>
+          <Grid container alignItems="flex-end" lg={12}>
+            <SwitchField
+              checked={this.state.historyOfDiabetes}
+              onChange={this.handleBarChange("historyOfDiabetes")}
+              name={"historyOfDiabetes"}
+              label={"History of diabetes"}
+            />
+          </Grid>
+          <Grid container alignItems="flex-end" lg={12}>
+            <SwitchField
+              checked={this.state.currentSmoker}
+              onChange={this.handleBarChange("currentSmoker")}
+              name={"currentSmoker"}
+              label={"Current smoker"}
+            />
+          </Grid>
+          <Grid container alignItems="flex-end" lg={12}>
+            <SwitchField
+              checked={this.state.aspirinTherapy}
+              onChange={this.handleBarChange("aspirinTherapy")}
+              name={"aspirinTherapy"}
+              label={"Aspirin therapy"}
+            />
+          </Grid>
+          <Grid container alignItems="flex-end" lg={12}>
+            <SwitchField
+              checked={this.state.therapyInitiated}
+              onChange={this.handleBarChange("therapyInitiated")}
+              name={"therapyInitiated"}
+              label={"Therapy initiated"}
+            />
+          </Grid>
         </Grid>
         <Grid className={classes.root} lg={4} />
       </div>
