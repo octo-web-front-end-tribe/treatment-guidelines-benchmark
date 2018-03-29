@@ -1,20 +1,20 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import HomePage from "../../containers/HomePage/Loadable";
-import NotFoundPage from "../../containers/NotFoundPage/Loadable";
-
+import Dashboard from "../../containers/Dashboard/Loadable";
+import UsefullTools from "../../containers/UsefullTools/Loadable";
 import AppLayout from "../AppLayout/AppLayout";
 
 export default function App() {
   return (
     <div>
-      <AppLayout>
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route component={NotFoundPage} />
+        <Route exact path="/" component={Dashboard} />
+      	<AppLayout>
+          <Route path="/Home" component={Dashboard} />
+          <Route path="/UsefullTools" component={UsefullTools} />
+      	</AppLayout>
         </Switch>
-      </AppLayout>
     </div>
   );
 }

@@ -11,6 +11,7 @@ export default theme => ({
 		display: 'flex',
 	},
 	appBar: {
+		backgroundColor: "#4C5CA7",
 		zIndex: theme.zIndex.drawer + 1,
 		transition: theme.transitions.create(['width', 'margin'], {
 			easing: theme.transitions.easing.sharp,

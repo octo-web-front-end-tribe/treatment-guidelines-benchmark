@@ -16,6 +16,26 @@ injectGlobal`
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
+  a {
+    text-decoration: none;
+  }
+
+  a:link {
+    color: inherit;
+	}
+
+	a:visited {
+		color: inherit;
+	}
+	
+	a:hover {
+		color: inherit;
+	}
+	
+	a:active {
+		color: inherit;
+	}
+
   #app {
     background-color: #fafafa;
     min-height: 100%;
